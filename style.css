@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'mulish', 'sans-serif'
+}
+:root {
+    font-size: 62.5%;
+}
+.grid {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main aside"
+    "footer footer footer";
+}
+header {
+    grid-area: header;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 11rem;
+    padding-left: 11rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #065E7C;
+}
+header form input {
+    width: 64rem;
+    background-color: #387E96;
+    border: none;
+    border-radius: 0.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    color: #FFF;
+}
+input::placeholder {
+    color: #FFF;
+    font-weight: 600;
+}
+header img:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+main {
+    grid-area: main;
+    padding-left: 11rem;
+    margin-top: 4.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 80%;
+}
+.like:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.texts {
+    display: flex;
+    justify-content: space-between;
+}
+.texts h1 {
+    font-weight: 700;
+}
+main p {
+    color: #121214;
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 160%;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    margin-top: 4.4rem;
+    grid-area: aside;
+    padding-right: 11rem;
+}
+aside h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.articles {
+    display: flex;
+    gap: 1.6rem;
+}
+.articles img:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    cursor: pointer;
+    filter: saturate(200%);
+}
+.text--articles h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.text--articles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.text--articles p {
+    font-size: 1.4rem;
+    color: #121214
+}
+.main {
+    display: flex;
+    gap: 3.4rem;
+}
+
+
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #387E96;
+    height: 6.4rem;
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 6.4rem;
+}
+header {
+    --startY: -100%;
+    animation: move 0.5s;
+}
+
+footer {
+    --startY: 100%;
+    animation: move 0.5s;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--startY));
+    }
+}
+.item {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    --delay: 0.4s;
+    animation: appear 0.4s var(--delay) backwards;
+
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-areas: 
+        "header header header"
+        "main main main"
+        "aside aside aside"
+        "footer footer footer";
+    }
+    header form input {
+       width: 70rem; 
+    }
+    header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+    main {
+        margin-top: 4.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    main h1{
+        padding-left: 2rem;
+    }
+    .button {
+        padding-left: 2rem
+    }
+    main p {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+        margin-top: 4.4rem;
+        grid-area: aside;
+    }
+    aside h1 {
+        padding-left: 2rem;
+    }
+    .articles {
+        padding-left: 2rem;
+    }
+}
